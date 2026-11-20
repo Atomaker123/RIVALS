@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131c">
+  <meta name="description" content="RIVALS — a fast, original browser arena FPS.">
+  <title>RIVALS — Arena FPS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="game" aria-label="RIVALS arena shooter">
+    <canvas id="view"></canvas>
+    <div id="overlay">
+      <header class="topbar"><div class="brand">RIVALS<span> / ARENA</span></div><div class="top-stats"><span id="level">LVL 1</span><span id="xp">0 XP</span></div></header>
+      <section id="menu" class="panel menu-panel">
+        <p class="eyebrow">TRAINING GROUNDS · SOLO ARENA</p><h1>ENTER THE<br><em>ARENA.</em></h1>
+        <p class="muted">A fast, original first-person arena shooter. Take on the bots, master your movement, and chase a new high score.</p>
+        <label class="field">ARENA<select id="mapChoice"><option value="city">City Showdown</option><option value="desert">Desert Facility</option><option value="neon">Neon Arena</option><option value="warehouse">Warehouse Warfare</option><option value="skyline">Skyline</option></select></label>
+        <label class="field">MATCH<select id="modeChoice"><option value="elimination">Elimination · first to 10</option><option value="timed">Timed · 3 minutes</option><option value="practice">Practice · no limit</option></select></label>
+        <button id="play" class="primary">PLAY MATCH <span>→</span></button>
+        <div class="menu-bottom"><button id="settingsToggle" class="text-button">SETTINGS</button><span>WASD MOVE · MOUSE AIM · CLICK FIRE</span></div>
+        <div id="settings" class="settings hidden"><label>Sensitivity <input id="sensitivity" type="range" min="0.0007" max="0.003" step="0.0001" value="0.0016"></label><label>Field of view <input id="fov" type="range" min="65" max="105" value="85"></label><label>Master volume <input id="volume" type="range" min="0" max="1" step="0.05" value="0.25"></label><p>Settings save automatically in this browser.</p></div>
+        <div class="controls"><b>CONTROLS</b><span>WASD move</span><span>SHIFT sprint</span><span>SPACE jump</span><span>CTRL crouch / slide</span><span>R reload</span><span>1–3 slots · Q / wheel cycle</span><span>ESC pause</span></div>
+      </section>
+      <section id="pause" class="panel small-panel hidden"><p class="eyebrow">MATCH PAUSED</p><h2>TAKE A BREATHER.</h2><button id="resume" class="primary">RESUME</button><button id="leave" class="text-button">LEAVE MATCH</button></section>
+      <section id="result" class="panel small-panel hidden"><p class="eyebrow" id="resultEyebrow">MATCH COMPLETE</p><h2 id="resultTitle">VICTORY</h2><p id="resultStats" class="muted"></p><button id="again" class="primary">PLAY AGAIN</button><button id="backMenu" class="text-button">MAIN MENU</button></section>
+      <div id="hud" class="hud hidden" aria-live="polite">
+        <div class="hud-top"><div class="scorebox"><small>ELIMINATIONS</small><strong id="score">0 <i>/ 10</i></strong></div><div class="timer" id="timer">03:00</div><div class="scorebox right"><small>ARENA</small><strong id="arenaName">CITY</strong></div></div>
+        <div class="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+        <div id="hitmarker" class="hitmarker">×</div><div id="feed" class="feed"></div><div id="centerMessage" class="center-message"></div>
+        <div class="hud-bottom"><div class="health"><small>HEALTH</small><div class="health-bar"><i id="healthBar"></i></div><strong id="health">100</strong></div><div class="weapon"><small id="weaponType">PRIMARY</small><strong id="weaponName">VANGUARD</strong><span id="ammo">30 <i>/ 120</i></span></div><div class="hint">R RELOAD<br>Q SWITCH</div></div>
+      </div>
+      <div id="toast" class="toast"></div>
+    </div>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
